@@ -41,7 +41,7 @@ const Contact = () => {
                             <a href="https://instagram.com/ronii.dey" target="_blank" rel="noreferrer"><FaInstagram /></a>
                         </div>
 
-                        <a href="/resume.pdf" download className="btn resume-btn">
+                        <a href="/Resume.pdf" download className="btn resume-btn">
                             <FaFileDownload /> Download My Resume
                         </a>
                     </div>
