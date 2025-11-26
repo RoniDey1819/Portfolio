@@ -35,10 +35,10 @@ const Contact = () => {
                         </div>
 
                         <div className="social-links">
-                            <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-                            <a href="https://github.com" target="_blank" rel="noreferrer"><FaGithub /></a>
-                            <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
-                            <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
+                            <a href="https://linkedin.com/in/ronidey1819" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                            <a href="https://github.com/RoniDey1819" target="_blank" rel="noreferrer"><FaGithub /></a>
+                            <a href="https://x.com/ronidey1819" target="_blank" rel="noreferrer"><FaTwitter /></a>
+                            <a href="https://instagram.com/roniii.dey" target="_blank" rel="noreferrer"><FaInstagram /></a>
                         </div>
 
                         <a href="/resume.pdf" download className="btn resume-btn">
