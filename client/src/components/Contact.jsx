@@ -38,7 +38,7 @@ const Contact = () => {
                             <a href="https://linkedin.com/in/ronidey1819" target="_blank" rel="noreferrer"><FaLinkedin /></a>
                             <a href="https://github.com/RoniDey1819" target="_blank" rel="noreferrer"><FaGithub /></a>
                             <a href="https://x.com/ronidey1819" target="_blank" rel="noreferrer"><FaTwitter /></a>
-                            <a href="https://instagram.com/roniii.dey" target="_blank" rel="noreferrer"><FaInstagram /></a>
+                            <a href="https://instagram.com/ronii.dey" target="_blank" rel="noreferrer"><FaInstagram /></a>
                         </div>
 
                         <a href="/resume.pdf" download className="btn resume-btn">

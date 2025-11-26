@@ -12,14 +12,10 @@ const Certifications = () => {
         const fetchCertifications = async () => {
             try {
                 const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
-                console.log('🔍 Fetching certifications from:', `${apiUrl}/api/certifications`);
-
                 const res = await axios.get(`${apiUrl}/api/certifications`, {
                     timeout: 10000
                 });
-                console.log('✅ Certifications fetched:', res.data);
 
-                // Format the data
                 const formattedCerts = res.data.map(cert => ({
                     title: cert.title,
                     issuer: cert.issuer,
@@ -29,12 +25,11 @@ const Certifications = () => {
                 }));
 
                 if (isMounted) {
-                    console.log('📝 Setting certs and loading=false');
                     setCerts(formattedCerts);
                     setLoading(false);
                 }
             } catch (err) {
-                console.error("❌ Error fetching certifications:", err);
+                console.error("Error fetching certifications:", err);
                 if (isMounted) {
                     setCerts([]);
                     setLoading(false);
@@ -48,8 +43,6 @@ const Certifications = () => {
             isMounted = false;
         };
     }, []);
-
-    console.log('🎯 Render - loading:', loading, 'certs:', certs.length);
 
     if (loading) {
         return (

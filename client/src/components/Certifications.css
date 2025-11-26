@@ -12,13 +12,11 @@
     transition: transform 0.3s ease;
     border: 1px solid var(--card-border);
     border-left-width: 4px;
-    /* Ensure left border stays */
 }
 
 .cert-card:hover {
     transform: translateX(10px);
     background: var(--card-bg);
-    /* Keep same bg or slightly lighter if needed */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,7 +26,10 @@
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
-    background: var(--bg-color);
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cert-image img {
@@ -36,6 +37,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .cert-card:hover .cert-image img {
