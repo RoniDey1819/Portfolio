@@ -7,12 +7,19 @@ const Papers = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let isMounted = true;
+
         const fetchPapers = async () => {
             try {
                 const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
-                const res = await axios.get(`${apiUrl}/api/papers`);
+                console.log('🔍 Fetching papers from:', `${apiUrl}/api/papers`);
 
-                // Format the data to match the component's expected format
+                const res = await axios.get(`${apiUrl}/api/papers`, {
+                    timeout: 10000
+                });
+                console.log('✅ Papers fetched:', res.data);
+
+                // Format the data
                 const formattedPapers = res.data.map(paper => ({
                     title: paper.title,
                     abstract: paper.abstract,
@@ -23,18 +30,28 @@ const Papers = () => {
                     doi: paper.doi
                 }));
 
-                setPapers(formattedPapers);
+                if (isMounted) {
+                    console.log('📝 Setting papers and loading=false');
+                    setPapers(formattedPapers);
+                    setLoading(false);
+                }
             } catch (err) {
-                console.error("Error fetching papers:", err);
-                // Fallback to empty array
-                setPapers([]);
-            } finally {
-                setLoading(false);
+                console.error("❌ Error fetching papers:", err);
+                if (isMounted) {
+                    setPapers([]);
+                    setLoading(false);
+                }
             }
         };
 
         fetchPapers();
+
+        return () => {
+            isMounted = false;
+        };
     }, []);
+
+    console.log('🎯 Render - loading:', loading, 'papers:', papers.length);
 
     if (loading) {
         return (

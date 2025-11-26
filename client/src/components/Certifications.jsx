@@ -7,12 +7,19 @@ const Certifications = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let isMounted = true;
+
         const fetchCertifications = async () => {
             try {
                 const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
-                const res = await axios.get(`${apiUrl}/api/certifications`);
+                console.log('🔍 Fetching certifications from:', `${apiUrl}/api/certifications`);
 
-                // Format the data to match the component's expected format
+                const res = await axios.get(`${apiUrl}/api/certifications`, {
+                    timeout: 10000
+                });
+                console.log('✅ Certifications fetched:', res.data);
+
+                // Format the data
                 const formattedCerts = res.data.map(cert => ({
                     title: cert.title,
                     issuer: cert.issuer,
@@ -21,18 +28,28 @@ const Certifications = () => {
                     image_url: cert.image_url
                 }));
 
-                setCerts(formattedCerts);
+                if (isMounted) {
+                    console.log('📝 Setting certs and loading=false');
+                    setCerts(formattedCerts);
+                    setLoading(false);
+                }
             } catch (err) {
-                console.error("Error fetching certifications:", err);
-                // Fallback to empty array or show error message
-                setCerts([]);
-            } finally {
-                setLoading(false);
+                console.error("❌ Error fetching certifications:", err);
+                if (isMounted) {
+                    setCerts([]);
+                    setLoading(false);
+                }
             }
         };
 
         fetchCertifications();
+
+        return () => {
+            isMounted = false;
+        };
     }, []);
+
+    console.log('🎯 Render - loading:', loading, 'certs:', certs.length);
 
     if (loading) {
         return (
