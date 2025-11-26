@@ -57,7 +57,7 @@ const Papers = () => {
         return (
             <section id="papers" className="section papers-section">
                 <div className="container">
-                    <h2 className="title">Published Papers</h2>
+                    <h2 className="title">Papers and Blogs</h2>
                     <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>Loading...</p>
                 </div>
             </section>
@@ -68,7 +68,7 @@ const Papers = () => {
         return (
             <section id="papers" className="section papers-section">
                 <div className="container">
-                    <h2 className="title">Published Papers</h2>
+                    <h2 className="title">Papers and Blogs</h2>
                     <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>No papers found.</p>
                 </div>
             </section>
@@ -78,7 +78,7 @@ const Papers = () => {
     return (
         <section id="papers" className="section papers-section">
             <div className="container">
-                <h2 className="title">Published Papers</h2>
+                <h2 className="title">Papers and Blogs</h2>
                 <div className="papers-grid">
                     {papers.map((paper, index) => (
                         <div className="paper-card" key={index}>
