@@ -10,9 +10,27 @@ const pool = new Pool({
     }
 });
 
-// Test the connection
+// Test the connection and verify database
 pool.connect()
-    .then(() => console.log("✅ Connected to Neon PostgreSQL"))
+    .then(async (client) => {
+        console.log("✅ Connected to Neon PostgreSQL");
+
+        // Log database info
+        const dbResult = await client.query('SELECT current_database(), current_schema()');
+        console.log("📊 Database:", dbResult.rows[0].current_database);
+        console.log("📊 Schema:", dbResult.rows[0].current_schema);
+
+        // Check if tables exist
+        const tablesResult = await client.query(`
+            SELECT table_name 
+            FROM information_schema.tables 
+            WHERE table_schema = 'public' 
+            AND table_type = 'BASE TABLE'
+        `);
+        console.log("📋 Tables found:", tablesResult.rows.map(r => r.table_name).join(', ') || 'NONE');
+
+        client.release();
+    })
     .catch((err) => {
         console.error("❌ Error connecting to Neon PostgreSQL:", err.message);
         console.error("Connection string (masked):", process.env.DATABASE_URL?.slice(0, 30) + "...");
