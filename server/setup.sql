@@ -8,6 +8,7 @@
 -- Drop table if exists (for clean setup)
 DROP TABLE IF EXISTS projects CASCADE;
 DROP TABLE IF EXISTS certifications CASCADE;
+DROP TABLE IF EXISTS papers CASCADE;
 DROP TABLE IF EXISTS contact_messages CASCADE;
 
 -- Projects table
@@ -35,6 +36,19 @@ CREATE TABLE certifications (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Papers table
+CREATE TABLE papers (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    abstract TEXT NOT NULL,
+    paper_url VARCHAR(500),
+    publication_date DATE,
+    authors TEXT[],
+    journal VARCHAR(255),
+    doi VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Contact messages table
 CREATE TABLE contact_messages (
     id SERIAL PRIMARY KEY,
@@ -57,10 +71,16 @@ INSERT INTO certifications (title, issuer, issue_date, credential_id, credential
 ('Google Cloud Professional', 'Google Cloud', '2023-11-20', 'GCP-PRO-2023-456', 'https://cloud.google.com/certification', 'https://via.placeholder.com/300x200/4285f4/ffffff?text=GCP'),
 ('Meta Front-End Developer', 'Meta (Facebook)', '2023-09-10', 'META-FE-2023-789', 'https://www.coursera.org/professional-certificates/meta-front-end-developer', 'https://via.placeholder.com/300x200/1877f2/ffffff?text=Meta');
 
+-- Insert sample papers
+INSERT INTO papers (title, abstract, paper_url, publication_date, authors, journal, doi) VALUES
+('Optimizing Neural Networks for Edge Devices', 'A comprehensive study on reducing the computational load of deep learning models for IoT devices without significant accuracy loss. We propose novel pruning techniques and quantization methods.', 'https://arxiv.org/example1', '2024-03-15', ARRAY['Roni Dey', 'Co-Author Name'], 'Journal of Machine Learning Research', '10.1234/jmlr.2024.001'),
+('Blockchain in Supply Chain Management', 'Analyzing the impact of decentralized ledgers on transparency and efficiency in global logistics. This paper presents a framework for implementing blockchain solutions in enterprise supply chains.', 'https://arxiv.org/example2', '2023-11-20', ARRAY['Roni Dey'], 'International Journal of Blockchain Technology', '10.1234/ijbt.2023.042');
+
 -- Create indexes for better performance
 CREATE INDEX idx_projects_status ON projects(status);
 CREATE INDEX idx_projects_created_at ON projects(created_at DESC);
 CREATE INDEX idx_certifications_issue_date ON certifications(issue_date DESC);
+CREATE INDEX idx_papers_publication_date ON papers(publication_date DESC);
 CREATE INDEX idx_contact_messages_status ON contact_messages(status);
 CREATE INDEX idx_contact_messages_created_at ON contact_messages(created_at DESC);
 

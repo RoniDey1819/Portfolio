@@ -1,21 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Papers.css';
 
 const Papers = () => {
-    const papers = [
-        {
-            title: "Optimizing Neural Networks for Edge Devices",
-            abstract: "A study on reducing the computational load of deep learning models for IoT devices without significant accuracy loss.",
-            link: "#",
-            date: "2024"
-        },
-        {
-            title: "Blockchain in Supply Chain Management",
-            abstract: "Analyzing the impact of decentralized ledgers on transparency and efficiency in global logistics.",
-            link: "#",
-            date: "2023"
-        }
-    ];
+    const [papers, setPapers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchPapers = async () => {
+            try {
+                const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+                const res = await axios.get(`${apiUrl}/api/papers`);
+
+                // Format the data to match the component's expected format
+                const formattedPapers = res.data.map(paper => ({
+                    title: paper.title,
+                    abstract: paper.abstract,
+                    link: paper.paper_url || '#',
+                    date: paper.publication_date ? new Date(paper.publication_date).getFullYear().toString() : 'N/A',
+                    authors: paper.authors,
+                    journal: paper.journal,
+                    doi: paper.doi
+                }));
+
+                setPapers(formattedPapers);
+            } catch (err) {
+                console.error("Error fetching papers:", err);
+                // Fallback to empty array
+                setPapers([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPapers();
+    }, []);
+
+    if (loading) {
+        return (
+            <section id="papers" className="section papers-section">
+                <div className="container">
+                    <h2 className="title">Published Papers</h2>
+                    <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>Loading...</p>
+                </div>
+            </section>
+        );
+    }
+
+    if (papers.length === 0) {
+        return (
+            <section id="papers" className="section papers-section">
+                <div className="container">
+                    <h2 className="title">Published Papers</h2>
+                    <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>No papers found.</p>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section id="papers" className="section papers-section">
@@ -28,8 +69,16 @@ const Papers = () => {
                                 <h3>{paper.title}</h3>
                                 <span className="paper-date">{paper.date}</span>
                             </div>
+                            {paper.journal && (
+                                <p className="paper-journal">{paper.journal}</p>
+                            )}
                             <p className="paper-abstract">{paper.abstract}</p>
-                            <a href={paper.link} className="btn paper-btn">Read Paper</a>
+                            {paper.authors && paper.authors.length > 0 && (
+                                <p className="paper-authors">
+                                    <strong>Authors:</strong> {paper.authors.join(', ')}
+                                </p>
+                            )}
+                            <a href={paper.link} target="_blank" rel="noopener noreferrer" className="btn paper-btn">Read Paper</a>
                         </div>
                     ))}
                 </div>

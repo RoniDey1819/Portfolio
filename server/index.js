@@ -162,6 +162,37 @@ app.post('/api/certifications', async (req, res) => {
     }
 });
 
+// Get all papers
+app.get('/api/papers', async (req, res) => {
+    try {
+        const result = await pool.query(
+            'SELECT * FROM papers ORDER BY publication_date DESC'
+        );
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error('Error fetching papers:', err);
+        res.status(500).json({ error: 'Failed to fetch papers', details: err.message });
+    }
+});
+
+// Create a new paper
+app.post('/api/papers', async (req, res) => {
+    try {
+        const { title, abstract, paper_url, publication_date, authors, journal, doi } = req.body;
+
+        const result = await pool.query(
+            'INSERT INTO papers (title, abstract, paper_url, publication_date, authors, journal, doi) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [title, abstract, paper_url, publication_date, authors || [], journal, doi]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error('Error creating paper:', err);
+        res.status(500).json({ error: 'Failed to create paper', details: err.message });
+    }
+});
+
+
 // Submit a contact message
 app.post('/api/contact', async (req, res) => {
     try {
@@ -208,6 +239,9 @@ app.listen(PORT, () => {
     console.log(`   - GET  /api/projects`);
     console.log(`   - POST /api/projects`);
     console.log(`   - GET  /api/certifications`);
+    console.log(`   - POST /api/certifications`);
+    console.log(`   - GET  /api/papers`);
+    console.log(`   - POST /api/papers`);
     console.log(`   - POST /api/contact`);
 });
 
