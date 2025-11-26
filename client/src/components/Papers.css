@@ -1,0 +1,63 @@
+.papers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.paper-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paper-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.paper-header h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    flex: 1;
+    margin-right: 15px;
+}
+
+.paper-date {
+    background: var(--card-bg);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    border: 1px solid var(--card-border);
+}
+
+.paper-abstract {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.paper-btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.paper-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: none;
+}
