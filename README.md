@@ -66,7 +66,7 @@ cp .env.example .env
 npm start   # runs on http://localhost:3002 by default
 ```
 
-## 🏃‍♂️ Usage
+##  Usage
 
 - Open `http://localhost:5173` in your browser to view the frontend.
 - The frontend communicates with the backend at `http://localhost:3002/api`.
