@@ -4,15 +4,15 @@
 [![Built%20with%20React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20.x-green?logo=node.js)](https://nodejs.org/)
 
-## 📖 Overview
+##  Overview
 
 A modern, responsive personal portfolio website showcasing projects, skills, certifications, and contact information. Built with **React**, **Vite**, and **Node.js** backend. Features a sleek dark/light theme, smooth animations, and a clean UI that works across devices.
 
-## 🚀 Live Demo
+##  Live Demo
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen)](https://portfolio-drab-psi-55.vercel.app/) 
 
-## ✨ Features
+##  Features
 
 - **Responsive Design** – Mobile‑first layout with fluid grids.
 - **Dark/Light Theme** – Persisted theme preference using `localStorage`.
@@ -21,7 +21,7 @@ A modern, responsive personal portfolio website showcasing projects, skills, cer
 - **Contact Form** – Integrated with email service (e.g., EmailJS).
 - **Backend API** – Node.js/Express server for data handling and health checks.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Frontend | Backend | Database |
 |----------|---------|----------|
@@ -29,7 +29,7 @@ A modern, responsive personal portfolio website showcasing projects, skills, cer
 | CSS Modules / Sass | JWT Auth | SSL connections |
 | Framer Motion (optional) | dotenv for env vars |
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ npm start   # runs on http://localhost:3002 by default
 - Edit component files under `client/src/components` to customize content.
 - Update project data in the backend or a JSON file as needed.
 
-## 📜 Scripts Overview
+##  Scripts Overview
 
 | Script | Description |
 |--------|-------------|
@@ -83,7 +83,7 @@ npm start   # runs on http://localhost:3002 by default
 | `start` (backend) | Launches Express server |
 | `test` | Runs any test suite (if configured) |
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -95,11 +95,11 @@ Contributions are welcome! Please follow these steps:
 
 Make sure to adhere to the existing code style and run `npm run lint` before submitting.
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-## 📧 Contact
+##  Contact
 
 - **Name**: Roni Dey
 - **Email**: [ronidey1819@gmail.com](mailto:ronidey1819@gmail.com)
