@@ -100,7 +100,7 @@ const Hero = () => {
                             <span className="name-underline"></span>
                         </span>
                         <span className="tagline">
-                            I craft <span className="highlight rotating-text">digital experiences</span>
+
                         </span>
                     </h1>
                     <p className="hero-subtitle">
