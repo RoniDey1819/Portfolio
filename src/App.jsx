@@ -7,6 +7,7 @@ import Papers from './components/Papers';
 import ProjectList from './components/ProjectList';
 import Contact from './components/Contact';
 import './index.css';
+import './App.css';
 
 function App() {
   return (

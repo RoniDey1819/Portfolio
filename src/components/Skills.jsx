@@ -1,35 +1,35 @@
 import React from 'react';
 import { FaJava, FaNodeJs, FaReact, FaLinux, FaGitAlt, FaDocker } from 'react-icons/fa';
 import { SiJavascript, SiExpress, SiC, SiKubernetes, SiMysql } from 'react-icons/si';
+import { skills as skillsData, extraSkills } from '../data/portfolioData';
 import './Skills.css';
 
+// Icon mapping — add new icons here when you add new skills to portfolioData.js
+const iconMap = {
+    FaJava: <FaJava />,
+    FaNodeJs: <FaNodeJs />,
+    FaReact: <FaReact />,
+    FaLinux: <FaLinux />,
+    FaGitAlt: <FaGitAlt />,
+    FaDocker: <FaDocker />,
+    SiJavascript: <SiJavascript />,
+    SiExpress: <SiExpress />,
+    SiC: <SiC />,
+    SiKubernetes: <SiKubernetes />,
+    SiMysql: <SiMysql />,
+};
+
 const Skills = () => {
-    const skills = [
-        { name: 'Java', icon: <FaJava /> },
-        { name: 'JavaScript', icon: <SiJavascript /> },
-        { name: 'Node.js', icon: <FaNodeJs /> },
-        { name: 'Express', icon: <SiExpress /> },
-        { name: 'Linux', icon: <FaLinux /> },
-        { name: 'Git', icon: <FaGitAlt /> },
-        { name: 'C', icon: <SiC /> },
-        { name: 'React', icon: <FaReact /> },
-        { name: 'Docker', icon: <FaDocker /> },
-        { name: 'Kubernetes', icon: <SiKubernetes /> },
-        { name: 'SQL', icon: <SiMysql /> },
-    ];
-
-    const extraSkills = [
-        "REST APIs", "System Design", "Agile", "Problem Solving", "Team Leadership"
-    ];
-
     return (
         <section id="skills" className="section skills-section">
             <div className="container">
                 <h2 className="section-title">Proficient In</h2>
                 <div className="skills-grid">
-                    {skills.map((skill, index) => (
+                    {skillsData.map((skill, index) => (
                         <div className="skill-card" key={index}>
-                            <div className="skill-icon">{skill.icon}</div>
+                            <div className="skill-icon">
+                                {iconMap[skill.iconName] || <span>⚙️</span>}
+                            </div>
                             <p>{skill.name}</p>
                         </div>
                     ))}

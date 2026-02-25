@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
 import profileImage from '../assets/profile.jpg';
 
@@ -94,9 +95,9 @@ const Hero = () => {
             <div className="container hero-wrapper">
                 <div className="hero-content">
                     <h1 className="hero-title">
-                        <span className="greeting">नमस्ते, I'm</span>
+                        <span className="greeting">{personalInfo.greeting}</span>
                         <span className="name-wrapper">
-                            <span className="highlight name-text">Roni Dey</span>
+                            <span className="highlight name-text">{personalInfo.name}</span>
                             <span className="name-underline"></span>
                         </span>
                         <span className="tagline">
@@ -104,9 +105,9 @@ const Hero = () => {
                         </span>
                     </h1>
                     <p className="hero-subtitle">
-                        <span className="typing-text">Student at University of Calcutta</span>
+                        <span className="typing-text">Student at {personalInfo.university}</span>
                         <span className="subtitle-divider">•</span>
-                        <span className="typing-text">DevOps, Gen AI, Web Technologies</span>
+                        <span className="typing-text">{personalInfo.interests}</span>
                     </p>
                     <div className="hero-cta">
                         <a href="#projects" className="btn hero-btn magnetic-btn">
@@ -129,7 +130,7 @@ const Hero = () => {
                     <div className="profile-card" ref={profileCardRef}>
                         <div className="card-glow"></div>
                         <div className="profile-circle">
-                            <img src={profileImage} alt="Roni Dey" className="profile-image" />
+                            <img src={profileImage} alt={personalInfo.name} className="profile-image" />
                             <div className="image-overlay"></div>
                         </div>
                         <div className="card-border"></div>
