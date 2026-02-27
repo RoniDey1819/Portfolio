@@ -2,7 +2,7 @@ import ArrowAnimation from "@/components/ArrowAnimation";
 import SectionTitle from "@/components/SectionTitle";
 import { PROJECTS, MY_STACK, GENERAL_INFO, EDUCATION, CERTIFICATIONS, AWARDS } from "@/lib/data";
 import Image from "next/image";
-import { Github, ExternalLink, Mail, Send, Linkedin } from "lucide-react";
+import { Github, ExternalLink, Mail, Send, Linkedin, Trophy } from "lucide-react";
 
 export default function Home() {
     return (
@@ -19,7 +19,7 @@ export default function Home() {
             </section>
 
             {/* About Section */}
-            <section id="about-me" className="py-24 container mx-auto px-4">
+            <section id="about-me" className="py-20 container mx-auto px-4">
                 <SectionTitle title="About Me" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-12 items-center">
                     <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-roboto-flex">
@@ -53,17 +53,19 @@ export default function Home() {
                                 </h3>
                             </div>
                             <div className="lg:w-3/4 pl-4 lg:pl-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
-                                {skills.map((skill) => (
-                                    <div key={skill.name} className="flex items-center gap-4 group">
-                                        <div className="relative size-10 flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-300">
-                                            <Image
-                                                src={skill.icon}
-                                                alt={skill.name}
-                                                fill
-                                                sizes="40px"
-                                                className="object-contain"
-                                            />
-                                        </div>
+                                {skills.map((skill: any) => (
+                                    <div key={skill.name} className="flex items-center group">
+                                        {skill.icon && (
+                                            <div className="relative size-10 flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-300 mr-4">
+                                                <Image
+                                                    src={skill.icon}
+                                                    alt={skill.name}
+                                                    fill
+                                                    sizes="40px"
+                                                    className="object-contain"
+                                                />
+                                            </div>
+                                        )}
                                         <span className="text-lg font-roboto-flex tracking-tight group-hover:text-primary transition-colors">
                                             {skill.name}
                                         </span>
@@ -76,7 +78,7 @@ export default function Home() {
             </section>
 
             {/* Projects Section */}
-            <section id="selected-projects" className="py-24 container mx-auto px-4 mb-24">
+            <section id="selected-projects" className="py-10 container mx-auto px-4">
                 <SectionTitle title="Projects" />
                 <div className="mt-12 space-y-20">
                     {PROJECTS.map((project, index) => (
@@ -156,7 +158,7 @@ export default function Home() {
             </section>
 
             {/* Education */}
-            <section id="education" className="py-24 container mx-auto px-4 mb-12">
+            <section id="education" className="py-10 container mx-auto px-4">
                 <SectionTitle title="Education" />
                 <div className="mt-12 bg-[#0d0d0d] p-8 md:p-12 rounded-3xl border border-white/5 max-w-4xl mx-auto">
                     <div className="space-y-12">
@@ -180,7 +182,7 @@ export default function Home() {
             </section>
 
             {/* Certifications */}
-            <section id="certifications" className="py-24 container mx-auto px-4 mb-12">
+            <section id="certifications" className="py-10 container mx-auto px-4">
                 <SectionTitle title="Certifications" />
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#0d0d0d] p-8 md:p-12 rounded-3xl border border-white/5">
                     {CERTIFICATIONS.map((cert, idx) => (
@@ -205,24 +207,31 @@ export default function Home() {
             </section>
 
             {/* Awards */}
-            <section id="awards" className="py-24 container mx-auto px-4 mb-24">
+            <section id="awards" className="py-10 container mx-auto px-4">
                 <SectionTitle title="Awards" />
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#0d0d0d] p-8 md:p-12 rounded-3xl border border-white/5">
-                    {AWARDS.map((award, idx) => (
-                        <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-start gap-4 hover:bg-white/10 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black/50 group">
-                            <div className="mt-1 opacity-50 group-hover:opacity-100 transition-opacity">
-                                <ArrowAnimation />
-                            </div>
-                            <p className="text-white/80 font-roboto-flex md:text-lg leading-relaxed font-medium">
-                                {award}
-                            </p>
+                <div className="mt-12 bg-[#0d0d0d] p-8 md:p-12 lg:p-16 rounded-3xl border border-white/5">
+                    <div className="relative">
+                        {/* Continuous vertical line */}
+                        <div className="absolute left-[27px] md:left-[31px] top-[28px] md:top-[32px] bottom-[28px] md:bottom-[32px] w-[2px] bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-blue-500/30"></div>
+
+                        <div className="space-y-10">
+                            {AWARDS.map((award, idx) => (
+                                <div key={idx} className="flex items-center gap-8 md:gap-12 group relative z-10">
+                                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#0d0d0d] border-2 border-blue-500/30 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-400/60 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500">
+                                        <Trophy size={22} className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+                                    </div>
+                                    <p className="text-white/80 group-hover:text-white font-roboto-flex text-lg md:text-xl leading-relaxed font-medium transition-colors duration-300">
+                                        {award}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </section>
 
             {/* Contact Section */}
-            <section id="contact" className="py-24 container mx-auto px-4 overflow-hidden">
+            <section id="contact" className="py-4 container mx-auto px-4 overflow-hidden">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
                         <h2 className="text-6xl md:text-8xl font-anton text-white">

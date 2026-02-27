@@ -28,11 +28,11 @@ export const MY_STACK = {
         },
         {
             name: 'GO',
-            icon: '/logo/js.png',
+            icon: '/logo/go.png',
         },
         {
             name: 'C',
-            icon: '/logo/js.png',
+            icon: '/logo/c.png',
         },
     ],
     frameworks: [
@@ -54,19 +54,19 @@ export const MY_STACK = {
         },
         {
             name: 'PyTorch',
-            icon: '/logo/js.png',
+            icon: '/logo/pytorch.png',
         },
         {
             name: 'Pandas',
-            icon: '/logo/js.png',
+            icon: '/logo/panda.png',
         },
         {
             name: 'NumPy',
-            icon: '/logo/js.png',
+            icon: '/logo/numpy.png',
         },
         {
             name: 'TensorFlow',
-            icon: '/logo/js.png',
+            icon: '/logo/tensor.png',
         },
     ],
     tools: [
@@ -76,7 +76,7 @@ export const MY_STACK = {
         },
         {
             name: 'Docker',
-            icon: '/logo/docker.svg',
+            icon: '/logo/docker.png',
         },
         {
             name: 'GitHub',
@@ -84,53 +84,53 @@ export const MY_STACK = {
         },
         {
             name: 'Linux',
-            icon: '/logo/aws.png',
+            icon: '/logo/linux1.png',
         },
         {
             name: 'MongoDB',
-            icon: '/logo/mongodb.svg',
+            icon: '/logo/mongo.png',
         },
         {
             name: 'MySQL',
-            icon: '/logo/mysql.svg',
+            icon: '/logo/mysql.png',
         },
         {
             name: 'PostgreSQL',
-            icon: '/logo/postgreSQL.png',
+            icon: '/logo/postgresql.png',
         },
         {
             name: 'Prisma',
-            icon: '/logo/nest.svg',
+            icon: '/logo/prisma.png',
         },
         {
             name: 'Postman',
-            icon: '/logo/mongodb.svg',
+            icon: '/logo/postman.png',
         },
     ],
     competencies: [
         {
             name: 'Transactrion and Query Optimization',
-            icon: '/logo/nest.svg',
+            // icon: '/logo/nest.svg',
         },
         {
             name: 'Session and Cookies',
-            icon: '/logo/nest.svg',
+            // icon: '/logo/nest.svg',
         },
         {
             name: 'JWT',
-            icon: '/logo/nest.svg',
+            //icon: '/logo/jwt.svg',
         },
         {
             name: 'REST APIs',
-            icon: '/logo/nest.svg',
+            // icon: '/logo/nest.svg',
         },
         {
             name: 'Authentication',
-            icon: '/logo/nest.svg',
+            // icon: '/logo/nest.svg',
         },
         {
             name: 'Data Modeling',
-            icon: '/logo/nest.svg',
+            // icon: '/logo/nest.svg',
         },
     ],
 };
