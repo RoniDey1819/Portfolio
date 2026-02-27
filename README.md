@@ -1,185 +1,39 @@
-# Portfolio
+# 🚀 My Portfolio Website
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Built%20with%20React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.x-purple?logo=vite)](https://vitejs.dev/)
+![image](https://github.com/user-attachments/assets/ade45c4b-b2cb-46cb-b8a6-31cad3bd0c5a)
 
-## Overview
+[Checkout the initial design here](https://www.figma.com/design/56hODoGFDzZfZduBPfQeBg/New-Portfolio?node-id=18-1550&t=73vRMGTW0gspTSND-1)
 
-A modern, responsive **frontend-only** personal portfolio website showcasing projects, skills, certifications, research papers, and contact information. Built with **React** and **Vite**. Features a sleek dark/light theme, smooth animations, glassmorphism effects, and a clean UI that works across all devices.
+## 🚨 Forking this repo (please read!)
 
-**No backend required.** All content data lives in a single file (`src/data/portfolioData.js`) that makes it trivially easy to add new projects, certifications, papers, and more.
+Many people have contacted me asking me if they can use this code for their own website, and the answer to that question is usually **yes, with attribution**.
 
-## Live Demo
+I value keeping my site open source, but as you all know, _**plagiarism is bad**_. It's always disheartening whenever I find that someone has copied my site without giving me credit. I spent a non-trivial amount of effort building and designing this iteration of my website, and I am proud of it! All I ask of you all is to not claim this effort as your own.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen)](https://portfolio-drab-psi-55.vercel.app/)
+Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions about implementation, please refer to the [Next.js docs](https://nextjs.org/docs).
 
-## Features
+If you like my work, give it a star⭐.
 
-- **Frontend Only** – Zero backend, zero database. Pure static site.
-- **Scalable Data Architecture** – All portfolio content is in `portfolioData.js`. Just add entries to arrays.
-- **Responsive Design** – Mobile-first layout with fluid grids.
-- **Dark/Light Theme** – Persisted theme preference using `localStorage`.
-- **Animated UI** – Parallax effects, 3D card tilts, floating particles, gradient mesh backgrounds.
-- **Project Showcase** – Interactive cards with tech-stack tags and live links.
-- **Contact Form** – Uses `mailto:` — no backend needed.
-- **SEO Optimized** – Open Graph tags, meta descriptions, semantic HTML.
+### TL;DR
 
-## Tech Stack
+Yes, you can fork this repo. Please give me proper credit by linking back to [tajmirul.site](https://tajmirul.site/). Thanks!
 
-| Layer      | Technology                  |
-|------------|-----------------------------|
-| Framework  | React 18 + Vite 5           |
-| Styling    | Vanilla CSS + CSS Variables |
-| Icons      | react-icons                 |
-| Deployment | Vercel (static)             |
+## 🛠 Installation & Set Up
 
-## Project Structure
-
-```
-Portfolio/
-├── client/
-│   ├── public/
-│   │   └── images/            # Static images (certifications, projects, resume)
-│   ├── src/
-│   │   ├── assets/            # Profile image
-│   │   ├── components/        # All React components + CSS
-│   │   ├── data/
-│   │   │   └── portfolioData.js  ← ⭐ EDIT THIS FILE to add content
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   ├── index.css          # Global design system
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── vite.config.js
-│   └── package.json
-├── .gitignore
-├── package.json               # Root scripts (dev, build, preview)
-└── README.md
-```
-
-## Installation
-
-### Prerequisites
-
-- **Node.js** (v18 or later)
-- **npm** (v9+) or **yarn**
+First, run the development server:
 
 ```bash
-# Clone the repository
-git clone https://github.com/RoniDey1819/Portfolio.git
-cd Portfolio
+pnpm install
+pnpm dev
 ```
 
-### Setup & Run
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-# Install client dependencies
-cd client
-npm install
+## 🤝 Contributing
+If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
 
-# Run the development server
-npm run dev
-# → Opens at http://localhost:5173
-```
+## Credit
+_This readme is inspired from [Brittany Chiang's github](https://github.com/bchiang7/v4)_
 
-Or from the root directory:
-
-```bash
-npm run dev
-```
-
-### Build for Production
-
-```bash
-npm run build    # Output in client/dist/
-npm run preview  # Preview the production build locally
-```
-
-## How to Add Content
-
-All portfolio data lives in **`client/src/data/portfolioData.js`**. To add content, simply append new objects to the respective arrays:
-
-### Add a New Project
-```js
-// In portfolioData.js → projects array
-{
-  id: 4,
-  title: "My New Project",
-  description: "What it does...",
-  imageUrl: "/images/projects/pimg4.png",     // Add image to public/images/projects/
-  projectUrl: "https://github.com/...",
-  status: "completed",                         // "completed" or "current"
-  technologies: ["React", "Node.js", "Docker"],
-},
-```
-
-### Add a New Certification
-```js
-// In portfolioData.js → certifications array
-{
-  id: 3,
-  title: "Your Certification",
-  issuer: "Issuing Org",
-  issueDate: "2025-01-15",
-  credentialId: "CERT-123",
-  credentialUrl: "https://...",
-  imageUrl: "/images/certifications/cert3.png",
-},
-```
-
-### Add a New Paper
-```js
-// In portfolioData.js → papers array
-{
-  id: 3,
-  title: "Paper Title",
-  abstract: "Abstract text...",
-  paperUrl: "https://arxiv.org/...",
-  publicationDate: "2025-06-01",
-  authors: ["Author 1", "Author 2"],
-  journal: "Journal Name",
-  doi: "10.xxx/...",
-},
-```
-
-## Scripts Overview
-
-| Script    | Description                       |
-|-----------|-----------------------------------|
-| `dev`     | Starts Vite development server    |
-| `build`   | Bundles the app for production    |
-| `preview` | Serves the production build locally |
-
-## Deployment
-
-This is a static site — deploy anywhere:
-
-- **Vercel**: Push to GitHub → auto-deploys from the `client/` directory.
-- **Netlify**: Set build command to `cd client && npm run build`, publish directory to `client/dist`.
-- **GitHub Pages**: Build and push the `client/dist/` folder.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/awesome-feature`).
-3. Commit your changes (`git commit -m "Add awesome feature"`).
-4. Push to the branch (`git push origin feature/awesome-feature`).
-5. Open a Pull Request.
-
-## License
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-- **Name**: Roni Dey
-- **Email**: [ronidey1819@gmail.com](mailto:ronidey1819@gmail.com)
-- **LinkedIn**: [linkedin.com/in/ronidey1819](https://linkedin.com/in/ronidey1819)
-- **GitHub**: [github.com/RoniDey1819](https://github.com/RoniDey1819)
-
----
-
-*Built by Roni Dey*
+## 📄 License
+This project is open source and available under the [MIT License](https://github.com/Tajmirul/portfolio-2.0/blob/main/LICENSE).
