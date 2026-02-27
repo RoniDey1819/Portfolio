@@ -23,7 +23,7 @@ export default function Home() {
                 <SectionTitle title="About Me" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-12 items-center">
                     <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground font-roboto-flex">
-                        I'm an innovative, innovation-driven Full-Stack Developer currently pursuing an M.Sc. in Computer Science at the University of Calcutta. I am passionate about modern web technologies and building scalable systems. My expertise spans React, Node.js, Spring Boot, and Python, allowing me to build end-to-end applications from responsive frontends to robust microservices.
+                        I&apos;m an innovative, innovation-driven Full-Stack Developer currently pursuing an M.Sc. in Computer Science at the University of Calcutta. I am passionate about modern web technologies and building scalable systems. My expertise spans React, Node.js, Spring Boot, and Python, allowing me to build end-to-end applications from responsive frontends to robust microservices.
                     </p>
                     <div className="relative aspect-square max-w-[320px] mx-auto w-full group">
                         <div className="absolute inset-0 border-2 border-primary/20 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] transition-transform group-hover:scale-105 duration-500"></div>
@@ -238,7 +238,7 @@ export default function Home() {
                             Contact <span className="text-blue-500">me.</span>
                         </h2>
                         <p className="text-white/60 text-lg md:text-xl font-roboto-flex max-w-2xl leading-relaxed">
-                            I'm always eager to explore new opportunities and take on exciting projects. If you have a project in mind, or just want to say hi, feel free to send me a message.
+                            I&apos;m always eager to explore new opportunities and take on exciting projects. If you have a project in mind, or just want to say hi, feel free to send me a message.
                         </p>
                     </div>
 
